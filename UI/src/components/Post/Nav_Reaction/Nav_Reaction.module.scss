@@ -1,0 +1,21 @@
+.menu-item {
+  background-color: transparent;
+  margin-top: 16px;
+  &:hover {
+
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+.icon{
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 0px;
+  border-radius: 50%;
+  transition: all ease-in-out 200ms;
+  background-color: rgba(22, 24, 35, 0.06);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}

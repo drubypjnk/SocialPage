@@ -8,10 +8,13 @@
     background: rgba(22, 24, 35, 0.03);
   }
 }
-
+.content-container{
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
@@ -23,9 +26,11 @@
 }
 
 .name {
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 500;
   margin-right: 8px;
+  display: flex;
+  line-height: 1.8rem;
 }
 
 .check {
@@ -34,12 +39,43 @@
 }
 
 .username {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: rgba(22, 24, 35, 0.5);
+  line-height: 1.8rem;
+
 }
 .container{
   display: flex;
+  width: 100%;
+  height: 738px;
+  justify-content: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #DFDFDF;
 }
-.nav-ìfor{
+.nav-ìnfor{
   display: flex;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.reaction_nav_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.title{
+  margin-bottom: 8px;
+}
+.title__Detail{
+  display: flex;
+}
+.title__Detail iframe{
+  height: 600px;
+  width: 400px;
+}
+.video_container{
+margin-right: 20px;
+}
+.title__word{
+  font-size: 1.6rem;
+
 }

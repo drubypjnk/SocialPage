@@ -3,7 +3,8 @@ import Image from '~/components/Image';
 import styles from './home.module.scss';
 import classNames from 'classnames/bind';
 import avt from '~/assets/images/dungbui_avt.jpg';
-
+import Menu from '~/layouts/components/Sidebar/Menu';
+import ScrollamaVideo from '~/components/ScrollamaVideo'
 const cx = classNames.bind(styles);
 const data = {
     avatar:{
@@ -19,13 +20,14 @@ const data = {
 }
 
 function Home() {
-    return <PostPreviewItem
-       data={data}
-    />;
-    return <PostPreviewItem
-        data={data}
-    />;
-
+    return<aside className={cx('wrapper')}>
+        {/*<Menu>*/}
+        {/*    <PostPreviewItem  data={data} />*/}
+        {/*    <PostPreviewItem  data={data} />*/}
+        {/*    <PostPreviewItem  data={data} />*/}
+        {/*</Menu>*/}
+        <ScrollamaVideo/>
+    </aside>
 }
 
 export default Home;
