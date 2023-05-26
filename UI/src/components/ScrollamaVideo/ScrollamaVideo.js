@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import MyVideo from "~/assets/images/Video1.mp4";
+import React, { useEffect, useRef } from 'react';
 
 function ScrollamaVideo() {
     // const videoRef = useRef(null);
@@ -22,7 +22,22 @@ function ScrollamaVideo() {
     //         video.pause();
     //     };
     // }, []);
+    const videoRef = useRef(null);
+    useEffect(() => {
+        const video = videoRef.current;
+        // Auto play video
+        video.autoplay = true;
 
+        // Reload video when it ends
+        const handleVideoEnded = () => {
+            video.load();
+        };
+        video.addEventListener('ended', handleVideoEnded);
+
+        return () => {
+            video.removeEventListener('ended', handleVideoEnded);
+        };
+    }, []);
     return (
     //     <div>
     //         <div style={{ height: '100vh' }} />
@@ -50,7 +65,7 @@ function ScrollamaVideo() {
     //         {/* Khoảng trống để tạo scroll */}
     //     </div>
     // );
-        <video width="700px" height="700px" preload="auto">
+        <video ref={videoRef} controls width="700px" height="700px">
             <source src={MyVideo} type="video/mp4" />
             Your browser does not support HTML5 video.
         </video>
