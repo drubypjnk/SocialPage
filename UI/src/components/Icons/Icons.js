@@ -192,13 +192,13 @@ export const ReactionIcon = ({ width = '2.8rem', height = '2.8rem', className })
         fill='none'
         xmlns='http://www.w3.org/2000/svg'>
         <g filter='url(#LikeRedShadowColor_filter0_d)'>
-            <path fill-rule='evenodd' clip-rule='evenodd'
+            <path fillRule='evenodd' clipRule='evenodd'
                   d='M15 4.5C21 4.5 24 8.5 24 8.5C24 8.5 27 4.5 33 4.5C40 4.5 45 9.99998 45 17C45 25 38.4622 32.1314 32.5 37.5C28.8191 40.8144 26 43 24 43C22 43 19.101 40.7978 15.5 37.5C9.63898 32.1325 3 25 3 17C3 9.99998 8 4.5 15 4.5Z'
                   fill='#FE2C55'></path>
         </g>
-        <path fill-rule='evenodd' clip-rule='evenodd'
+        <path fillRule='evenodd' clipRule='evenodd'
               d='M4.80371 24.3995C7.17815 29.3932 11.5185 33.8538 15.4999 37.4999C19.1009 40.7978 21.9999 42.9999 23.9999 42.9999C25.9999 42.9999 28.819 40.8144 32.4999 37.4999C38.4621 32.1314 44.9999 24.9999 44.9999 16.9999C44.9999 16.8252 44.9968 16.6513 44.9906 16.4785C41.1344 27.3238 27.3575 37 23.5001 37C20.6255 37 11.2219 31.6262 4.80371 24.3995Z'
-              fill='black' fill-opacity='0.03'></path>
+              fill='black' fillOpacity='0.03'></path>
     </svg>
 
 );
@@ -221,18 +221,18 @@ export const ShareIcon = ({ width = '2.8rem', height = '2.8rem', className }) =>
          fill='none' xmlns='http://www.w3.org/2000/svg'
          transform='matrix(1, 0, 0, 1, 0, 0)rotate(0)'
          stroke='#161823'
-         stroke-width='1.008'>
-        <g id='SVGRepo_bgCarrier' stroke-width='0'></g>
-        <g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round' stroke='#CCCCCC'
-           stroke-width='2.352'>
+         strokeWidth='1.008'>
+        <g id='SVGRepo_bgCarrier' strokeWidth='0'></g>
+        <g id='SVGRepo_tracerCarrier' strokeLinecap='round' strokeLinejoin='round' stroke='#CCCCCC'
+           strokeWidth='2.352'>
             <path
                 d='M15.4306 7.70172C7.55045 7.99826 3.43929 15.232 2.17021 19.3956C2.07701 19.7014 2.31139 20 2.63107 20C2.82491 20 3.0008 19.8828 3.08334 19.7074C6.04179 13.4211 12.7066 12.3152 15.514 12.5639C15.7583 12.5856 15.9333 12.7956 15.9333 13.0409V15.1247C15.9333 15.5667 16.4648 15.7913 16.7818 15.4833L20.6976 11.6784C20.8723 11.5087 20.8993 11.2378 20.7615 11.037L16.8456 5.32965C16.5677 4.92457 15.9333 5.12126 15.9333 5.61253V7.19231C15.9333 7.46845 15.7065 7.69133 15.4306 7.70172Z'
-                fill='#161823' stroke='#161823' stroke-linecap='round' stroke-linejoin='round'></path>
+                fill='#161823' stroke='#161823' strokeLinecap='round' strokeLinejoin='round'></path>
         </g>
         <g id='SVGRepo_iconCarrier'>
             <path
                 d='M15.4306 7.70172C7.55045 7.99826 3.43929 15.232 2.17021 19.3956C2.07701 19.7014 2.31139 20 2.63107 20C2.82491 20 3.0008 19.8828 3.08334 19.7074C6.04179 13.4211 12.7066 12.3152 15.514 12.5639C15.7583 12.5856 15.9333 12.7956 15.9333 13.0409V15.1247C15.9333 15.5667 16.4648 15.7913 16.7818 15.4833L20.6976 11.6784C20.8723 11.5087 20.8993 11.2378 20.7615 11.037L16.8456 5.32965C16.5677 4.92457 15.9333 5.12126 15.9333 5.61253V7.19231C15.9333 7.46845 15.7065 7.69133 15.4306 7.70172Z'
-                fill='#161823' stroke='#161823' stroke-linecap='round' stroke-linejoin='round'></path>
+                fill='#161823' stroke='#161823' strokeLinecap='round' strokeLinejoin='round'></path>
         </g>
     </svg>
 );

@@ -1,76 +1,106 @@
-import { Scrollama, Step } from 'react-scrollama';
-import MyVideo from "~/assets/images/Video1.mp4";
-import React, { useEffect, useRef } from 'react';
+import {Scrollama, Step} from 'react-scrollama';
+import {videos} from '~/assets/videos';
+import React, {useEffect, useRef} from 'react';
+import styles from './Scrollama.module.scss';
+import classNames from 'classnames/bind';
+import {Link} from 'react-router-dom';
+import Image from '~/components/Image';
+import NavReactionMenu, {NavReactionItem} from '~/components/Post/Nav_Reaction';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import {
+    CommnetIcon,
+    ReactionIcon, ShareIcon,
+} from '~/components/Icons';
 
-function ScrollamaVideo() {
-    // const videoRef = useRef(null);
-    // const steps = ['Video1', 'Video2', 'Video3']; // Định nghĩa danh sách video
-    //
-    // const handleStepEnter = ({ data }) => {
-    //     // Mở video khi đạt tới step tương ứng
-    //     const video = videoRef.current;
-    //     video.src = `~/assets/images/${data}.mp4`;
-    //     video.play();
-    //     console.log('play video '+ video.src);
-    // };
-    //
-    // useEffect(() => {
-    //     // Tắt video khi rời khỏi step
-    //     const video = videoRef.current;
-    //
-    //     return () => {
-    //         video.pause();
-    //     };
-    // }, []);
-    const videoRef = useRef(null);
+function ScrollamaVideo({data}) {
+    let videoRef = useRef(null);
+    let preVideoRef = useRef(null);
+    const cx = classNames.bind(styles);
+
+    const steps = videos; // Định nghĩa danh sách video
+    const handleStepEnter = ({data}) => {
+        // Mở video khi đạt tới step tương ứng
+        // console.log('play video: ' + data.id);
+
+
+        preVideoRef.current = videoRef.current;
+        videoRef.current = data
+
+        document.getElementById(videoRef.current.id).play();
+        document.getElementById(preVideoRef.current.id).pause();
+    };
+
     useEffect(() => {
-        const video = videoRef.current;
-        // Auto play video
-        video.autoplay = true;
-
-        // Reload video when it ends
-        const handleVideoEnded = () => {
-            video.load();
-        };
-        video.addEventListener('ended', handleVideoEnded);
-
         return () => {
-            video.removeEventListener('ended', handleVideoEnded);
+            // Tắt video khi rời khỏi step
+            const video = videoRef.current;
+            // video.pause();
         };
-    }, []);
-    return (
-    //     <div>
-    //         <div style={{ height: '100vh' }} />
-    //         {/* Khoảng trống để tạo scroll */}
-    //         <Scrollama onStepEnter={handleStepEnter}>
-    //             {steps.map((step, index) => (
-    //                 <Step key={index} data={step}>
-    //                     <div style={{ height: '100vh' }}>
-    //                         {/* Vị trí video */}
-    //                         {step === 'Video1' && (
-    //                             <video src='~/assets/images/Video1.mp4' ref={videoRef} style={{ width: '100%', height: '100%' }} controls />
-    //                         )}
-    //                         {/*{step === 'Video2' && (*/}
-    //                         {/*    <video src='src/lib/Videos/Video2.mp4' ref={videoRef} style={{ width: '100%', height: '100%' }} controls />*/}
-    //                         {/*)}*/}
-    //                         {/*{step === 'Video3' && (*/}
-    //                         {/*    <video src='src/lib/Videos/Video3.mp4' ref={videoRef} style={{ width: '100%', height: '100%' }} controls />*/}
-    //                         {/*)}*/}
-    //                     </div>
-    //
-    //                 </Step>
-    //             ))}
-    //         </Scrollama>
-    //         <div style={{ height: '100vh' }} />
-    //         {/* Khoảng trống để tạo scroll */}
-    //     </div>
-    // );
-        <video ref={videoRef} controls width="700px" height="700px">
-            <source src={MyVideo} type="video/mp4" />
-            Your browser does not support HTML5 video.
-        </video>
+    }, [videoRef]);
 
-    )
-};
+    return (
+        <div>
+            {/* Khoảng trống để tạo scroll */}
+            <Scrollama onStepEnter={handleStepEnter}>
+                {steps.map((step, index) => (
+                    <Step key={index} data={step}>
+                        <div
+                            className={cx('container')}>
+
+                            {/*avatar*/}
+                            <Link to={`/@${data.nickname}`} className={cx('avatar')}>
+                                <Image className={cx('avatar')} src={data.avatar.src} alt={data.avatar.title}/>
+                            </Link>
+
+                            {/*title */}
+                            <div className={cx('content-container')}>
+                                <Link to={`/@${data.nickname}`} className={cx('nav-ìnfor')}>
+                                    <h4 className={cx('name')}>
+                                        <p>{data.full_name}</p>
+                                        {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle}/>}
+                                    </h4>
+                                    <span className={cx('username')}>{data.nickname}</span>
+                                </Link>
+                                <div className={cx('title')}>
+                                    <span className={cx('title__word')}>
+                                        TRÙM CUỐI mãi keo... #hongbeoi #hongpeoi #haihuoc #vuinhon #nhachayminmin #TikTokPromote
+                                        #NhacHayMoiNgay #TikTokGiaiTri #theanh28 #theanh28trending
+                                    </span>
+                                </div>
+
+                                {/*video */}
+                                <div className={cx('title__Detail')}>
+                                    <video
+
+                                        title={'vid-title'}
+                                        id={step.id}
+                                        src={videos[index].src}
+                                        ref={videoRef}
+                                        controls/>
+
+                                    <NavReactionMenu>
+                                        <NavReactionItem to={''} title={'dung'}
+                                                         icon={<ReactionIcon/>}
+                                        />
+                                        <NavReactionItem to={''} title={'dung'}
+                                                         icon={<CommnetIcon/>}
+                                        />
+                                        <NavReactionItem to={''} title={'dung'}
+                                                         icon={<ShareIcon/>}
+                                        />
+                                    </NavReactionMenu>
+                                </div>
+
+                            </div>
+                        </div>
+                    </Step>
+                ))}
+            </Scrollama>
+            <div style={{height: '100vh'}}/>
+            {/* Khoảng trống để tạo scroll */}
+        </div>
+    );
+}
 
 export default ScrollamaVideo;
