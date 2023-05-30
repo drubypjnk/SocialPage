@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49d5c6b2-314b-4310-bcde-b9eb4f1e5a4b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/UI/src/assets/videos/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/assets/videos/videos.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/components/ScrollamaVideo/Scrollama.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/UI/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/UI/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/components/Icons/Icons.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/Icons/Icons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/components/ScrollamaVideo/ScrollamaVideo.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/ScrollamaVideo/ScrollamaVideo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/components/SuggestedAccounts/AccountItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/SuggestedAccounts/AccountItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/components/SuggestedAccounts/AccountPreview/AccountPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/components/SuggestedAccounts/AccountPreview/AccountPreview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/layouts/components/Sidebar/Sidebar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/layouts/components/Sidebar/Sidebar.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/pages/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/pages/Home/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +59,7 @@
       <workItem from="1685168397822" duration="7546000" />
       <workItem from="1685330468326" duration="4087000" />
       <workItem from="1685340352105" duration="7398000" />
+      <workItem from="1685430759993" duration="1961000" />
     </task>
     <servers />
   </component>
