@@ -18,6 +18,7 @@
         "keycloak-js": "^21.1.1",
         "normalize.css": "^8.0.1",
         "oidc-react": "^3.2.0",
+        "qs": "^6.11.2",
         "react": "^18.1.0",
         "react-dom": "^18.1.0",
         "react-player": "^2.12.0",

@@ -1,9 +1,12 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
+import {default as AuthenRouter }from '~/routes/AuthenticationRouter'
 import DefaultLayout from '~/layouts';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+
     return (
         <Router>
             <div className="App">
@@ -20,14 +23,15 @@ function App() {
 
                         return (
                             <Route
-                                key={index}
-                                path={route.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
+                                // key={index}
+                                // path={route.path}
+                                // element={
+                                //     <Layout>
+                                //         <Page />
+                                //     </Layout>
+                                // }
                             />
+
                         );
                     })}
                 </Routes>

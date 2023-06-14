@@ -5,8 +5,13 @@ import React, { useState } from 'react';
 
 const cx = classNames.bind(styles);
     const authenService = new AuthenticatedService();
-
 function LoginForm() {
+class LoginRequest {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+}
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -16,13 +21,13 @@ function LoginForm() {
     };
 
     function login(event) {
+
         event.preventDefault();
 
-        let formData = new FormData();
-        formData.append("username", username);
-        formData.append("password", password);
-        let data = JSON.stringify(formData);
-        authenService.signin(data)
+
+        const loginRequest = new LoginRequest(username, password);
+
+        authenService.signin(loginRequest)
     }
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
