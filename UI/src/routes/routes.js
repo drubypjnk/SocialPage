@@ -2,6 +2,7 @@ import config from '~/config';
 
 // Layouts
 import { HeaderOnly } from '~/layouts';
+import { Login } from '~/layouts';
 
 // Pages
 import Home from '~/pages/Home';
@@ -19,6 +20,7 @@ const publicRoutes = [
     { path: config.routes.profile, component: Profile },
     { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     { path: config.routes.search, component: Search, layout: null },
+    {path: config.routes.login, component: Login, layout:Login }
 ];
 
 const privateRoutes = [];
