@@ -1,25 +1,28 @@
 import axios from 'axios';
 
-class authenticatedService {
+export default class authenticatedService {
 
     isLogin = async () => {
         const storedUser = localStorage.getItem('user');
-       return  storedUser == null ;
+        if (storedUser) {
+            return true;
+        } else {
+            return false;
+        }
     };
 
     signin = async (data) => {
         try {
-            console.log(JSON.stringify(data));
             const response = await axios.post('http://localhost:9000/api/v1/users/login', data);
             if (response.data.access_token) {
                 localStorage.setItem('user', JSON.stringify(response.data));
             }
             console.log('Token: ' + response.data);
-            return response.data;
+            return true;
         } catch (error) {
-            console.error(error);
-            throw error;
+            console.error('error '+ error.message);
         }
+            return false;
     };
 
     signOut() {
@@ -42,4 +45,5 @@ class authenticatedService {
     }
 }
 
-export default authenticatedService;
+
+

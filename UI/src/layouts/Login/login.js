@@ -1,17 +1,56 @@
 import classNames from 'classnames/bind';
-import AuthenticatedService from '~/services/authenticatedService'
-import styles from './login.module.scss';
-import React, { useState } from 'react';
+import AuthenticatedService, { default as authenticatedService } from '~/services/authenticatedService';
 
-const cx = classNames.bind(styles);
-    const authenService = new AuthenticatedService();
+import styles from './login.module.scss';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const authenService = new AuthenticatedService();
+
+
 function LoginForm() {
-class LoginRequest {
-    constructor(username, password) {
-        this.username = username;
-        this.password = password;
+const cx = classNames.bind(styles);
+    const navigate = useNavigate();
+    let authenticated = new authenticatedService();
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // useEffect(() => {
+    //     const result = await authenticated.isLogin();
+    //     setIsLoggedIn(authenticated.isLogin());
+    //     console.log('isLoggedIn: ' + authenticated.isLogin());
+    //     if (isLoggedIn == false) {
+    //         navigate('/login');
+    //     }
+    // }, []);
+
+    useEffect(() => {
+        const checkLoginState = async () => {
+            try {
+                const result = await authenticated.isLogin();
+                console.log('result:' + result);
+                setIsLoggedIn(result);
+
+                if (!isLoggedIn) {
+                    navigate('/login');
+                } else {
+                    navigate('/');
+
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        checkLoginState();
+    }, [useNavigate, isLoggedIn]);
+
+    class LoginRequest {
+        constructor(username, password) {
+            this.username = username;
+            this.password = password;
+        }
     }
-}
+
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -20,15 +59,18 @@ class LoginRequest {
         setPassword(event.target.value);
     };
 
-    function login(event) {
-
+    async function login(event) {
         event.preventDefault();
-
-
         const loginRequest = new LoginRequest(username, password);
-
-        authenService.signin(loginRequest)
+        let checkLogin = await authenService.signin(loginRequest);
+        console.log('checklogin' + checkLogin);
+        if (checkLogin) {
+            navigate('/');
+        } else {
+            navigate('/login');
+        }
     }
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     return (
@@ -37,17 +79,18 @@ class LoginRequest {
             <h2 className={cx('login-header')}>Log in</h2>
             <form className={cx('login-container')} onSubmit={login}>
                 <p><input value={username} type='text' placeholder='Email'
-                          onChange={handleUsernameChange}/></p>
-                <p><input  value={password} type='password' placeholder='Password'
-                           onChange={handlePasswordChange}/></p>
-                <p><input  type='submit' value='Log in' /></p>
+                          onChange={handleUsernameChange} /></p>
+                <p><input value={password} type='password' placeholder='Password'
+                          onChange={handlePasswordChange} /></p>
+                <p><input type='submit' value='Log in' /></p>
             </form>
         </div>
     );
 }
+
 function Logout() {
     return (
-       <div>Logout Form</div>
+        <div>Logout Form</div>
     );
 }
 
